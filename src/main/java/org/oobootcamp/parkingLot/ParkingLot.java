@@ -23,10 +23,22 @@ public class ParkingLot {
         return new Ticket(car.getCarLicence());
     }
 
+    public boolean hasCapacity() {
+        return this.parkedCar.size() < capacity;
+    }
+
     public Car pick(Ticket ticket) {
         if (!parkedCar.containsKey(ticket.getCarLicence())) {
             throw new InvalidTicketException();
         }
         return this.parkedCar.get(ticket.getCarLicence());
+    }
+
+    public int getParkedCarNumber() {
+        return this.parkedCar.size();
+    }
+
+    public boolean hasParkedCar(Ticket ticket) {
+        return parkedCar.containsKey(ticket.getCarLicence());
     }
 }

@@ -11,6 +11,6 @@ public class FootBallSquare {
     }
 
     public Boolean equalOriginFootBall(FootBallSquare footBallSquare){
-        return  this.width.equals(footBallSquare.width) && this.length.equals(footBallSquare.length);
+        return  this.width.getValue().equals(footBallSquare.width.getValue()) && this.length.getValue().equals(footBallSquare.length.getValue());
     }
 }

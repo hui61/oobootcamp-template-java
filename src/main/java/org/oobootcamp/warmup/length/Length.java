@@ -2,6 +2,10 @@ package org.oobootcamp.warmup.length;
 
 
 public class Length {
+    public Integer getValue() {
+        return value;
+    }
+
     private Integer value;
     private Unit unit;
     public Length(Integer value, Unit unit){

@@ -33,6 +33,21 @@ public class ParkingBrotherTest {
     }
 
     @Test
+    void should_return_ticket_and_second_parking_lot_parked_car_number_add_1_when_park_given_parking_brother_first_and_third_parking_lot_with_capacity_second_without_capacity_and_a_car() {
+        var parkingBrother = new ParkingBrother();
+        var firstParkingLot = new ParkingLot(1);
+        firstParkingLot.park(new Car("mock carLicence"));
+        parkingBrother.addParkingLot(firstParkingLot);
+        parkingBrother.addParkingLot(new ParkingLot(1));
+        parkingBrother.addParkingLot(new ParkingLot(1));
+        var car = new Car(carLicence);
+        var ticket = parkingBrother.park(car);
+        assertNotNull(ticket);
+        assertEquals(1, parkingBrother.getParkingLotByNumber(2).getParkedCarNumber());
+        assertEquals(0, parkingBrother.getParkingLotByNumber(3).getParkedCarNumber());
+    }
+
+    @Test
     void should_return_no_capacity_exception_when_park_given_parking_brother_with_no_capacity_and_car() {
         var parkingBrother = new ParkingBrother();
         parkingBrother.addParkingLot(new ParkingLot(0));

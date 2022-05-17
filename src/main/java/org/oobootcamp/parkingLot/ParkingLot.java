@@ -8,6 +8,10 @@ public class ParkingLot {
 
     private final Map<String, Car> parkedCar = new HashMap<>();
 
+    public int getAvailableCapacity() {
+        return capacity - this.parkedCar.size();
+    }
+
     public ParkingLot(int capacity) {
         this.capacity = capacity;
     }
@@ -36,5 +40,13 @@ public class ParkingLot {
 
     public boolean hasParkedCar(Ticket ticket) {
         return parkedCar.containsKey(ticket.getCarLicence());
+    }
+
+    public static ParkingLot compare(ParkingLot parkingLot1, ParkingLot parkingLot2) {
+        if (parkingLot1.getAvailableCapacity() < parkingLot2.getAvailableCapacity()) {
+            return parkingLot2;
+        }else {
+            return parkingLot1;
+        }
     }
 }

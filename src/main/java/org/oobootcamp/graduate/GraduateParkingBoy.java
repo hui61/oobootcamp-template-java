@@ -1,9 +1,8 @@
-package org.oobootcamp.graduateParkingBoy;
+package org.oobootcamp.graduate;
 
 
 import org.oobootcamp.parkingLot.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GraduateParkingBoy {

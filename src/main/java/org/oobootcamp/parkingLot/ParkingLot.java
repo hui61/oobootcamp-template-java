@@ -42,7 +42,7 @@ public class ParkingLot {
         return parkedCar.containsKey(ticket.getCarLicence());
     }
 
-    public static ParkingLot compare(ParkingLot parkingLot1, ParkingLot parkingLot2) {
+    public static ParkingLot maxFreeAvailableParkingLot(ParkingLot parkingLot1, ParkingLot parkingLot2) {
         if (parkingLot1.getAvailableCapacity() < parkingLot2.getAvailableCapacity()) {
             return parkingLot2;
         }else {

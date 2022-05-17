@@ -15,7 +15,7 @@ public class SmartParkingBoy {
     }
 
     public Ticket park(Car car) {
-        return parkingLots.stream().reduce(ParkingLot::compare).get().park(car);
+        return parkingLots.stream().reduce(ParkingLot::maxFreeAvailableParkingLot).get().park(car);
     }
 
     public Car pick(Ticket ticket) {

@@ -31,6 +31,16 @@ class SmartParkingBoyTest {
     }
 
     @Test
+    void should_return_ticket_and_park_car_into_first_parking_lot_when_park_car_given_parking_boy_has_two_parking_lot_and_have_same_capacity() {
+        var firstParkingLot = new ParkingLot(2);
+        var smartParkingBoy = new SmartParkingBoy(Arrays.asList(firstParkingLot, new ParkingLot(2)));
+        var car = new Car(carLicence);
+        Ticket ticket = smartParkingBoy.park(car);
+        assertNotNull(ticket);
+        assertEquals(car, firstParkingLot.pick(ticket));
+    }
+
+    @Test
     void should_throw_no_capacity_exception_when_park_car_given_parking_boy_has_two_parking_lot_without_capacity() {
         var smartParkingBoy = new SmartParkingBoy(Arrays.asList(new ParkingLot(0), new ParkingLot(0)));
         assertThrows(NoCapacityException.class, () -> smartParkingBoy.park(new Car(carLicence)));

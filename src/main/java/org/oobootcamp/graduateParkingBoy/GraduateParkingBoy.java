@@ -1,16 +1,16 @@
-package org.oobootcamp.parkingBrother;
+package org.oobootcamp.graduateParkingBoy;
 
 
 import org.oobootcamp.parkingLot.*;
 
 import java.util.ArrayList;
-import java.util.Optional;
+import java.util.List;
 
-public class ParkingBrother {
-    private final ArrayList<ParkingLot> parkingLots =  new ArrayList<>();
+public class GraduateParkingBoy {
+    private final List<ParkingLot> parkingLots;
 
-    public ParkingLot getParkingLotByNumber(int i) {
-        return parkingLots.get(i-1);
+    public GraduateParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
     public Ticket park(Car car) {
@@ -21,13 +21,9 @@ public class ParkingBrother {
         return optionalParkingLot.get().park(car);
     }
 
-    public void addParkingLot(ParkingLot parkingLot) {
-        this.parkingLots.add(parkingLot);
-    }
-
     public Car pick(Ticket ticket) {
         var optionalParkingLot = parkingLots.stream().filter((parkingLot -> parkingLot.hasParkedCar(ticket))).findFirst();
-        if (optionalParkingLot.isEmpty()){
+        if (optionalParkingLot.isEmpty()) {
             throw new InvalidTicketException();
         }
         return optionalParkingLot.get().pick(ticket);

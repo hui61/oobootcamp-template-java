@@ -17,14 +17,10 @@ public class ParkingLot {
             throw new NoCapacityException();
         }
         if (parkedCar.containsKey(car.getCarLicence())) {
-            throw  new DuplicateLicencePlateException();
+            throw new DuplicateLicencePlateException();
         }
         parkedCar.put(car.getCarLicence(), car);
         return new Ticket(car.getCarLicence());
-    }
-
-    public boolean hasCapacity() {
-        return this.parkedCar.size() < capacity;
     }
 
     public Car pick(Ticket ticket) {
@@ -34,8 +30,8 @@ public class ParkingLot {
         return this.parkedCar.get(ticket.getCarLicence());
     }
 
-    public int getParkedCarNumber() {
-        return this.parkedCar.size();
+    public boolean hasCapacity() {
+        return this.parkedCar.size() < capacity;
     }
 
     public boolean hasParkedCar(Ticket ticket) {

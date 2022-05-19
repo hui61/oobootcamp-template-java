@@ -1,4 +1,4 @@
-package org.oobootcamp.smartParkingBoy;
+package org.oobootcamp.smart;
 
 import org.junit.jupiter.api.Test;
 import org.oobootcamp.parkingLot.*;

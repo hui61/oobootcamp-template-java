@@ -23,5 +23,13 @@ public abstract class ParkingBoy {
                 .pick(ticket);
     }
 
+    public boolean hasCapacity() {
+        return this.parkingLots.stream().anyMatch(ParkingLot::hasCapacity);
+    }
+
+    public boolean hasParkedCar(Ticket ticket) {
+        return this.parkingLots.stream().anyMatch(parkingLot -> parkingLot.hasParkedCar(ticket));
+    }
+
     public abstract Ticket park(Car car);
 }

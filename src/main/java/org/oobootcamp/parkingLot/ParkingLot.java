@@ -49,4 +49,12 @@ public class ParkingLot {
             return parkingLot1;
         }
     }
+
+    public static ParkingLot maxFreeAvailableRateParkingLot(ParkingLot parkingLot1, ParkingLot parkingLot2) {
+        if (parkingLot1.getAvailableCapacity() / parkingLot1.capacity < parkingLot2.getAvailableCapacity() / parkingLot2.capacity) {
+            return parkingLot2;
+        } else {
+            return parkingLot1;
+        }
+    }
 }
